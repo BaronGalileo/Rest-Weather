@@ -1,6 +1,11 @@
 import React from "react";
-import Button from "./Components/Button";
 import CordsFromMap from "./Components/Coords";
+import Form from "./Components/Form";
+import Test from "./Components/test";
+import axios from "axios";
+import Country from "./Components/Country";
+
+
 
 
 
@@ -8,11 +13,24 @@ import CordsFromMap from "./Components/Coords";
 
 
 function App() {
+
+
+    function getCity(path) {
+        return axios.get(path)
+      }
+     
+    function getWeather(path) {
+        return axios.get(path)
+      }
+
+
     return(
         <>
         <h1>Hello</h1>
+        <Country/>
         <CordsFromMap/>
-        <Button name='Мои координаты'/>
+        <Form myGetCity={getCity}/>
+        <Test name='Погода сегодня у меня дома!'/>
         </>
     )
 }
