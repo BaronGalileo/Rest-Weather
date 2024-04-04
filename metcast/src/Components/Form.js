@@ -22,7 +22,7 @@ function Form(props){
             const x = res.data[0].lat
             const y = res.data[0].lon
             let url_weather = `https://api.openweathermap.org/data/3.0/onecall?lat=${x}&lon=${y}&units=metric&appid=${API_KEY}`
-            afterSending(url_weather)
+            afterSending(url_weather,city)
             
         })
 
@@ -34,12 +34,14 @@ function Form(props){
       }
 
 
-    function afterSending(path) {
+    function afterSending(path, city) {
         
         console.log('Dsgjkyztv', path)
         getWeather(path).then(resoult => {
             console.log('DATA', resoult.data.current)
-            const stringWeather = `Сегодня ${resoult.data.current.temp}`
+            const stringWeather = `В ${city} сегодня: ${resoult.data.current.temp}°С,
+            скорость ветра:${resoult.data.current.wind_speed} метр/сек, 
+            влажность: ${resoult.data.current.humidity} %`;
             return setWeather(stringWeather)
         })
     }

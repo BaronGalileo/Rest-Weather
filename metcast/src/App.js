@@ -3,9 +3,7 @@ import CordsFromMap from "./Components/Coords";
 import Form from "./Components/Form";
 import Test from "./Components/test";
 import axios from "axios";
-import Country from "./Components/Country";
-
-
+import DateTime from "./Components/DateTime";
 
 
 
@@ -27,7 +25,7 @@ function App() {
     return(
         <>
         <h1>Hello</h1>
-        <Country/>
+        <DateTime/>
         <CordsFromMap/>
         <Form myGetCity={getCity}/>
         <Test name='Погода сегодня у меня дома!'/>
